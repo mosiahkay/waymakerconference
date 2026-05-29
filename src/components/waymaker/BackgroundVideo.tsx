@@ -1,5 +1,5 @@
-import videoAsset from "../../../public/eden-bg.mp4.asset.json";
 import poster from "@/assets/eden-stage.png";
+const VIDEO_URL = "/__l5e/assets-v1/87b2c6ec-34f7-45d3-8ccc-e3fe84c7d838/eden-bg.mp4";
 import { useEffect, useRef } from "react";
 
 interface Props {
@@ -37,7 +37,7 @@ export function BackgroundVideo({ scrollProgress, ambianceOn }: Props) {
     <div className="fixed inset-0 -z-10 overflow-hidden bg-black">
       <video
         ref={videoRef}
-        src={videoAsset.url}
+        src={VIDEO_URL}
         poster={poster}
         autoPlay
         muted
