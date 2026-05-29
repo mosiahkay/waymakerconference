@@ -14,7 +14,72 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      stand_reservations: {
+        Row: {
+          contact_name: string
+          created_at: string
+          description: string
+          email: string
+          id: string
+          organization_name: string
+          phone: string | null
+          stand_type: string
+        }
+        Insert: {
+          contact_name: string
+          created_at?: string
+          description: string
+          email: string
+          id?: string
+          organization_name: string
+          phone?: string | null
+          stand_type: string
+        }
+        Update: {
+          contact_name?: string
+          created_at?: string
+          description?: string
+          email?: string
+          id?: string
+          organization_name?: string
+          phone?: string | null
+          stand_type?: string
+        }
+        Relationships: []
+      }
+      volunteers: {
+        Row: {
+          availability: string | null
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          motivation: string | null
+          phone: string | null
+          pole: string
+        }
+        Insert: {
+          availability?: string | null
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          motivation?: string | null
+          phone?: string | null
+          pole: string
+        }
+        Update: {
+          availability?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          motivation?: string | null
+          phone?: string | null
+          pole?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
