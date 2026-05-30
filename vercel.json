@@ -1,7 +1,4 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": ".output",
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "buildCommand": "bun run build",
+  "outputDirectory": ".output"
 }
