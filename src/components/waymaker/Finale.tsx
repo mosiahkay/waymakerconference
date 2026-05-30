@@ -4,9 +4,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { BadgeModal } from "./BadgeModal";
+
+const CONTACT_EMAIL = "contact@waymaker.experience";
 
 const TIERS = [
   { name: "Bronze", price: "500 $", perks: ["Logo sur écran", "Mention scène"] },
@@ -26,9 +27,21 @@ export function Finale({ progress }: Props) {
   async function submitVolunteer(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    const { error } = await supabase.from("volunteers").insert(vol);
+    const subject = `Bénévolat — ${vol.full_name} (${vol.pole})`;
+    const body = [
+      `Nom : ${vol.full_name}`,
+      `Email : ${vol.email}`,
+      `Téléphone : ${vol.phone}`,
+      `Pôle : ${vol.pole}`,
+      `Disponibilités : ${vol.availability}`,
+      `Motivations : ${vol.motivation}`,
+    ].join("\n");
+    window.open(
+      `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+      "_blank",
+    );
     setLoading(false);
-    if (error) { toast.error("Erreur. Réessaie."); return; }
+    toast.success("Ton client mail s'ouvre. Voici ton badge.");
     setBadge({ name: vol.full_name, pole: vol.pole });
     setVol({ full_name: "", email: "", phone: "", pole: "Accueil", availability: "", motivation: "" });
   }
