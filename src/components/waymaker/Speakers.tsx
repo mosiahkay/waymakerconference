@@ -1,16 +1,16 @@
 import { Music, Mic, BookOpen, Instagram } from "lucide-react";
 
 const SPEAKERS = [
-  { name: "Pst. Daniel Mbala", role: "Pasteur Principal", color: "text-orange-300", bio: "Voix prophétique de la nouvelle génération, il porte un message de réveil pour les nations." },
-  { name: "Sarah Lukombo", role: "Leader de Louange", color: "text-amber-300", bio: "Architecte sonore d'une louange spontanée qui transforme l'atmosphère." },
-  { name: "Pst. Joël Kazadi", role: "Orateur", color: "text-rose-300", bio: "Théologien et auteur, il décrypte les mystères des temps modernes." },
-  { name: "Esther Mwamba", role: "Apôtre", color: "text-pink-300", bio: "Mère spirituelle d'un mouvement de réveil panafricain." },
-  { name: "Jeremy Tshibuyi", role: "Artiste / MC", color: "text-violet-300", bio: "Pont entre culture urbaine et message d'espérance." },
-  { name: "Pst. Aimée Bisimwa", role: "Enseignante", color: "text-fuchsia-300", bio: "Spécialiste de la formation des leaders émergents." },
-  { name: "Israël Kabongo", role: "Leader de Louange", color: "text-indigo-300", bio: "Compositeur worship dont les chants traversent les continents." },
-  { name: "Pst. Gloire Ntumba", role: "Orateur Invité", color: "text-sky-300", bio: "Mentor de planteurs d'églises, voix de la réforme." },
-  { name: "Naomi Tshibola", role: "Psalmiste", color: "text-cyan-300", bio: "Sa voix porte une onction de guérison et de délivrance." },
-  { name: "Pst. Benjamin Mukendi", role: "Apôtre", color: "text-teal-300", bio: "Bâtisseur d'une génération sans compromis, pleine de feu." },
+  { name: "Pst. Jonathan Matunga", role: "Pasteur Principal", color: "text-orange-300", bio: "Voix prophétique de la nouvelle génération, il porte un message de réveil pour les nations." },
+  { name: "Pst. Elior Tay", role: "Pasteur", color: "text-amber-300", bio: "Architecte sonore d'une louange spontanée qui transforme l'atmosphère." },
+  { name: "Apotre Narcisse Majila", role: "Apotre", color: "text-rose-300", bio: "Théologien et auteur, il décrypte les mystères des temps modernes." },
+  { name: "Prophete Serge Habaquk", role: "Prophete", color: "text-pink-300", bio: "Mère spirituelle d'un mouvement de réveil panafricain." },
+  { name: "David Okit", role: "Artiste / MC", color: "text-violet-300", bio: "Pont entre culture urbaine et message d'espérance." },
+  { name: "Adoratrice Blessing peace", role: "Enseignante et adoratrice", color: "text-fuchsia-300", bio: "Spécialiste de la formation des leaders émergents." },
+  { name: "Adoratrice Deborah Mantshumba", role: "Leader de Louange", color: "text-indigo-300", bio: "Compositeur worship dont les chants traversent les continents." },
+  { name: "Adorateur Dany Kasongo", role: "Adorateur", color: "text-sky-300", bio: "Compositeur worship, sa voix porte une onction puissante." },
+  { name: "Adorateur Jules Bukasa", role: "Psalmiste", color: "text-cyan-300", bio: "Sa voix porte une onction de guérison et de délivrance." },
+  { name: "Inviter surprise", role: "Orateur inviter", color: "text-teal-300", bio: "Bâtisseur d'une génération sans compromis, pleine de feu." },
 ];
 
 interface Props { progress: number }
