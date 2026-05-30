@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+
+const CONTACT_EMAIL = "contact@waymaker.experience";
 
 export function StandModal({ open, onOpenChange }: { open: boolean; onOpenChange: (v: boolean) => void }) {
   const [loading, setLoading] = useState(false);
@@ -15,10 +16,18 @@ export function StandModal({ open, onOpenChange }: { open: boolean; onOpenChange
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    const { error } = await supabase.from("stand_reservations").insert(form);
+    const subject = `Réservation de stand — ${form.organization_name}`;
+    const body = [
+      `Organisation : ${form.organization_name}`,
+      `Type de stand : ${form.stand_type}`,
+      `Description : ${form.description}`,
+      `Contact : ${form.contact_name}`,
+      `Email : ${form.email}`,
+      `Téléphone : ${form.phone}`,
+    ].join("\n");
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setLoading(false);
-    if (error) { toast.error("Une erreur est survenue."); return; }
-    toast.success("Demande envoyée. Nous te recontactons sous 72h.");
+    toast.success("Ton client mail s'ouvre pour finaliser l'envoi.");
     onOpenChange(false);
     setForm({ organization_name: "", stand_type: "art", description: "", contact_name: "", email: "", phone: "" });
   }

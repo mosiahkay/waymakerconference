@@ -157,17 +157,18 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
   .glass-strong {
-    background: rgba(15, 10, 8, 0.55);
+    background: rgba(8, 6, 4, 0.78);
     backdrop-filter: blur(32px) saturate(160%);
     -webkit-backdrop-filter: blur(32px) saturate(160%);
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 215, 140, 0.18);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 215, 140, 0.08);
   }
   .text-glow {
-    background: linear-gradient(135deg, #fff 0%, #ffd9b8 50%, #ff7a3a 100%);
+    background: linear-gradient(135deg, #fff5d6 0%, #ffd87a 35%, #d4a017 70%, #8a5a00 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 0 80px rgba(255, 122, 58, 0.35);
+    text-shadow: 0 0 80px rgba(212, 160, 23, 0.45);
   }
   .tracking-display {
     letter-spacing: 0.18em;
