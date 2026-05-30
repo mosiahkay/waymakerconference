@@ -15,7 +15,7 @@ export function Hero({ fade }: Props) {
         Waymaker<br />Conference
       </h1>
       <p className="mt-6 text-white/70 text-sm sm:text-base max-w-xl">
-        Trois soirées à ciel ouvert · 14 – 16 Novembre · Stade EDEN, Kinshasa
+        Quatre soirées à ciel ouvert · 6 – 9 Aout · Lubumbashi
       </p>
       <div className="mt-10 pointer-events-auto">
         <button className="glass rounded-full px-7 py-3 text-[11px] uppercase tracking-display text-white hover:bg-white/10 transition">
