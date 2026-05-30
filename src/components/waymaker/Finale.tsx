@@ -23,6 +23,8 @@ export function Finale({ progress }: Props) {
   const [badge, setBadge] = useState<{ name: string; pole: string } | null>(null);
   const [vol, setVol] = useState({ full_name: "", email: "", phone: "", pole: "Accueil", availability: "", motivation: "" });
   const [loading, setLoading] = useState(false);
+  const [sponsor, setSponsor] = useState({ organization: "", contact_name: "", email: "", tier: "Gold", amount: "", message: "" });
+  const [sponsorLoading, setSponsorLoading] = useState(false);
 
   async function submitVolunteer(e: React.FormEvent) {
     e.preventDefault();
@@ -44,6 +46,29 @@ export function Finale({ progress }: Props) {
     toast.success("Ton client mail s'ouvre. Voici ton badge.");
     setBadge({ name: vol.full_name, pole: vol.pole });
     setVol({ full_name: "", email: "", phone: "", pole: "Accueil", availability: "", motivation: "" });
+  }
+
+  async function submitSponsor(e: React.FormEvent) {
+    e.preventDefault();
+    setSponsorLoading(true);
+    const subject = `Soutenir la vision — ${sponsor.organization || sponsor.contact_name} (${sponsor.tier})`;
+    const body = [
+      `Organisation / Ministère : ${sponsor.organization}`,
+      `Contact : ${sponsor.contact_name}`,
+      `Email : ${sponsor.email}`,
+      `Palier souhaité : ${sponsor.tier}`,
+      `Montant envisagé : ${sponsor.amount}`,
+      ``,
+      `Message :`,
+      sponsor.message,
+    ].join("\n");
+    window.open(
+      `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+      "_blank",
+    );
+    setSponsorLoading(false);
+    toast.success("Merci ! Ton client mail s'ouvre pour finaliser ta promesse de don.");
+    setSponsor({ organization: "", contact_name: "", email: "", tier: "Gold", amount: "", message: "" });
   }
 
   return (
@@ -81,7 +106,17 @@ export function Finale({ progress }: Props) {
         <div className="glass-strong rounded-3xl p-8">
           <p className="text-[10px] uppercase tracking-display text-primary">05 — Partenaires</p>
           <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-display text-white mt-1">Soutenir la vision</h3>
-          <p className="text-white/70 text-sm mt-2">Entreprises, ministères, donateurs — votre empreinte sur une génération entière.</p>
+          <p className="text-white/70 text-sm mt-2">
+            Entreprises, ministères et donateurs particuliers : votre engagement façonne l'empreinte culturelle
+            et spirituelle de toute une génération. Chaque don finance la scène, l'accueil de
+            <span className="text-white"> 15 000 participants</span>, la captation diffusée à travers l'Afrique
+            francophone, et la gratuité des soirées pour la jeunesse.
+          </p>
+          <ul className="mt-4 space-y-1.5 text-[12px] text-white/70">
+            <li>— <span className="text-white">Impact culturel :</span> une scène panafricaine, 10 voix, 3 nuits.</li>
+            <li>— <span className="text-white">Impact spirituel :</span> un appel prophétique vers une génération entière.</li>
+            <li>— <span className="text-white">Empreinte durable :</span> contenus, formations et envois post-conférence.</li>
+          </ul>
           <div className="grid grid-cols-2 gap-3 mt-5">
             {TIERS.map(t => (
               <div key={t.name} className="glass rounded-2xl p-4">
@@ -95,9 +130,32 @@ export function Finale({ progress }: Props) {
               </div>
             ))}
           </div>
-          <Button variant="outline" className="w-full mt-5 rounded-full glass border-white/20 text-white hover:bg-white/10 uppercase tracking-display text-[11px] font-semibold">
-            Devenir partenaire
-          </Button>
+          <form onSubmit={submitSponsor} className="space-y-3 mt-5">
+            <div className="grid grid-cols-2 gap-3">
+              <Input required placeholder="Organisation / Ministère" value={sponsor.organization} onChange={e => setSponsor({ ...sponsor, organization: e.target.value })} className="bg-white/5 border-white/15" />
+              <Input required placeholder="Nom du contact" value={sponsor.contact_name} onChange={e => setSponsor({ ...sponsor, contact_name: e.target.value })} className="bg-white/5 border-white/15" />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <Input required type="email" placeholder="Email" value={sponsor.email} onChange={e => setSponsor({ ...sponsor, email: e.target.value })} className="bg-white/5 border-white/15" />
+              <Input placeholder="Montant envisagé ($)" value={sponsor.amount} onChange={e => setSponsor({ ...sponsor, amount: e.target.value })} className="bg-white/5 border-white/15" />
+            </div>
+            <div>
+              <Label className="text-[10px] uppercase tracking-display text-white/70">Palier</Label>
+              <Select value={sponsor.tier} onValueChange={v => setSponsor({ ...sponsor, tier: v })}>
+                <SelectTrigger className="bg-white/5 border-white/15"><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  {TIERS.map(t => (
+                    <SelectItem key={t.name} value={t.name}>{t.name} — {t.price}</SelectItem>
+                  ))}
+                  <SelectItem value="Don libre">Don libre</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <Textarea placeholder="Votre message ou intention" value={sponsor.message} onChange={e => setSponsor({ ...sponsor, message: e.target.value })} className="bg-white/5 border-white/15 min-h-20" />
+            <Button type="submit" disabled={sponsorLoading} className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 uppercase tracking-display text-[11px] font-semibold">
+              {sponsorLoading ? "Envoi…" : "Soutenir la vision"}
+            </Button>
+          </form>
         </div>
       </div>
       <BadgeModal data={badge} onClose={() => setBadge(null)} />
