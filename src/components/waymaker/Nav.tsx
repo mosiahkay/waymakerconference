@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { Ticket, AudioLines } from "lucide-react";
+import { CalendarDays, AudioLines } from "lucide-react";
 
 interface Props {
   ambianceOn: boolean;
@@ -26,8 +26,8 @@ export function Nav({ ambianceOn, setAmbianceOn, onJump }: Props) {
           <span>Ambiance</span>
           <Switch checked={ambianceOn} onCheckedChange={setAmbianceOn} />
         </label>
-        <Button size="sm" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-[var(--glow-orange)] uppercase tracking-display text-[10px] font-semibold">
-          <Ticket className="h-3.5 w-3.5" /> Tickets
+        <Button size="sm" onClick={() => onJump("speakers")} className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-[var(--glow-orange)] uppercase tracking-display text-[10px] font-semibold">
+          <CalendarDays className="h-3.5 w-3.5" /> Voir le programme
         </Button>
       </div>
     </header>
