@@ -72,14 +72,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Waymaker Conference - EDEN 2025" },
+      {
+        name: "description",
+        content:
+          "Waymaker Conference EDEN 2025 a Lubumbashi: quatre soirees, des voix fortes et une experience immersive.",
+      },
+      { name: "author", content: "Waymaker Conference" },
+      { property: "og:title", content: "Waymaker Conference - EDEN 2025" },
+      {
+        property: "og:description",
+        content:
+          "Quatre soirees a ciel ouvert, des voix fortes et une experience immersive a Lubumbashi.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {

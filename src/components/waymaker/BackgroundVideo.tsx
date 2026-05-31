@@ -1,5 +1,5 @@
 import poster from "@/assets/eden-stage.png";
-const VIDEO_URL = "/__l5e/assets-v1/87b2c6ec-34f7-45d3-8ccc-e3fe84c7d838/eden-bg.mp4";
+const VIDEO_URL = "/eden-bg.mp4";
 import { useEffect, useRef } from "react";
 
 interface Props {
