@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Clock, MapPin, Search, Sparkles, Music, Mic2, HandHeart, Sun, Moon, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -121,13 +120,13 @@ function ProgrammePage() {
         </Link>
 
         {/* Header */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
           <div className="text-[10px] uppercase tracking-[0.35em] text-amber-300/80 mb-3">Waymaker Conference · EDEN 2025</div>
           <h1 className="font-display text-5xl md:text-7xl leading-[0.95] text-glow mb-4">Le Programme</h1>
           <p className="text-white/70 max-w-2xl text-base md:text-lg">
             Trois jours pour bâtir, recevoir et renvoyer. Une chorégraphie de louange, de parole et de rencontres — pensée comme un seul mouvement prophétique.
           </p>
-        </motion.div>
+        </div>
 
         {/* Day tabs */}
         <div className="mt-12 flex flex-wrap gap-3">
@@ -179,27 +178,22 @@ function ProgrammePage() {
         <div className="mt-12 relative">
           <div className="absolute left-[7px] top-2 bottom-2 w-px bg-gradient-to-b from-amber-400/60 via-orange-400/20 to-transparent" />
 
-          <AnimatePresence mode="popLayout">
+          <>
             {filtered.length === 0 ? (
-              <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="py-16 text-center text-white/50">
+              <div className="py-16 text-center text-white/50">
                 Aucune session ne correspond à ta recherche.
-              </motion.div>
+              </div>
             ) : (
-              <motion.ul layout className="space-y-4">
+              <ul className="space-y-4">
                 {filtered.map((s, i) => {
                   const id = `${day.id}-${i}`;
                   const meta = KIND_META[s.kind];
                   const Icon = meta.icon;
                   const open = openSession === id;
                   return (
-                    <motion.li
+                    <li
                       key={id}
-                      layout
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4, delay: i * 0.05 }}
-                      className="relative pl-10"
+                      className="relative pl-10 animate-in fade-in slide-in-from-left-4 duration-500"
                     >
                       <div className={`absolute left-0 top-5 h-4 w-4 rounded-full bg-gradient-to-br ${meta.color} shadow-[0_0_20px_rgba(245,158,11,0.6)] ring-4 ring-black/60`} />
                       <button
@@ -223,28 +217,22 @@ function ProgrammePage() {
                             </div>
                             <div className="text-lg font-semibold text-white leading-tight">{s.title}</div>
                             {s.speaker && <div className="text-sm text-white/60 mt-0.5">avec {s.speaker}</div>}
-                            <AnimatePresence initial={false}>
+                            <>
                               {open && (
-                                <motion.div
-                                  initial={{ opacity: 0, height: 0 }}
-                                  animate={{ opacity: 1, height: "auto" }}
-                                  exit={{ opacity: 0, height: 0 }}
-                                  transition={{ duration: 0.3 }}
-                                  className="overflow-hidden"
-                                >
+                                <div className="overflow-hidden animate-in fade-in slide-in-from-top-2 duration-300">
                                   <p className="text-sm text-white/70 mt-3 pt-3 border-t border-white/10">{s.description}</p>
-                                </motion.div>
+                                </div>
                               )}
-                            </AnimatePresence>
+                            </>
                           </div>
                         </div>
                       </button>
-                    </motion.li>
+                    </li>
                   );
                 })}
-              </motion.ul>
+              </ul>
             )}
-          </AnimatePresence>
+          </>
         </div>
 
         {/* CTA */}
