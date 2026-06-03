@@ -9,7 +9,7 @@ export function Hero({ fade }: Props) {
       style={{ opacity: 1 - fade, transform: `translateY(${fade * -40}px)` }}
     >
       <p className="text-[10px] sm:text-xs uppercase tracking-display text-white/60 mb-6">
-        Édition EDEN · 2025
+        Édition · 2026
       </p>
       <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-display uppercase leading-[0.95] text-glow">
         Waymaker<br />Conference

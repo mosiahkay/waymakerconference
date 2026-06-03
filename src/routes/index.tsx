@@ -13,9 +13,9 @@ import { Footer } from "@/components/waymaker/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Waymaker Conference · EDEN 2025" },
-      { name: "description", content: "Trois soirées à ciel ouvert. Dix voix. Une vision. Rejoins l'expérience Waymaker — EDEN 2025." },
-      { property: "og:title", content: "Waymaker Conference · EDEN 2025" },
+      { title: "Waymaker Conference · Edition 2026" },
+      { name: "description", content: "Quatres soirées à ciel ouvert. Dix voix. Une vision. Rejoins l'expérience Waymaker — EDEN 2025." },
+      { property: "og:title", content: "Waymaker Conference · Edition 2026" },
       { property: "og:description", content: "Trois soirées à ciel ouvert. Dix voix. Une vision." },
     ],
   }),

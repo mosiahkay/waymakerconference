@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useState } from "react";
 import { toast } from "sonner";
 
-const CONTACT_EMAIL = "contact@waymaker.experience";
+const CONTACT_EMAIL = "jonathanmatngoy@gmail.com";
 
 export function StandModal({ open, onOpenChange }: { open: boolean; onOpenChange: (v: boolean) => void }) {
   const [loading, setLoading] = useState(false);

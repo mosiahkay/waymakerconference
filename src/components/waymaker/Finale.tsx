@@ -7,7 +7,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { BadgeModal } from "./BadgeModal";
 
-const CONTACT_EMAIL = "contact@waymaker.experience";
+const CONTACT_EMAIL = "jonathanmatngoy@gmail.com";
 
 const TIERS = [
   { name: "Bronze", price: "500 $", perks: ["Logo sur écran", "Mention scène"] },

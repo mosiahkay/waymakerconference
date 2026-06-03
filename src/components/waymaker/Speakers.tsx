@@ -10,7 +10,8 @@ const SPEAKERS = [
   { name: "Adoratrice Deborah Mantshumba", role: "Leader de Louange", color: "text-indigo-300", bio: "Compositeur worship dont les chants traversent les continents." },
   { name: "Adorateur Dany Kasongo", role: "Adorateur", color: "text-sky-300", bio: "Compositeur worship, sa voix porte une onction puissante." },
   { name: "Adorateur Jules Bukasa", role: "Psalmiste", color: "text-cyan-300", bio: "Sa voix porte une onction de guérison et de délivrance." },
-  { name: "Inviter surprise", role: "Orateur inviter", color: "text-teal-300", bio: "Bâtisseur d'une génération sans compromis, pleine de feu." },
+  { name: "Docteur Archippe Fataki", role: "Docteur", color: "text-cyan-300", bio: "Sa voix porte une onction de guérison et de délivrance." },
+  { name: "Minister Abbey Ojumo", role: "Adoratrice", color: "text-teal-300", bio: "Bâtisseur d'une génération sans compromis, pleine de feu." },
 ];
 
 interface Props { progress: number }
