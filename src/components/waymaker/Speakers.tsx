@@ -1,50 +1,109 @@
-import { Music, Mic, BookOpen, Instagram } from "lucide-react";
+import { BookOpen, Mic, Music } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const SPEAKERS = [
-  { name: "Pst. Jonathan Matunga", role: "Pasteur Principal", color: "text-orange-300", bio: "Voix prophétique de la nouvelle génération, il porte un message de réveil pour les nations." },
-  { name: "Pst. Elior Tay", role: "Pasteur", color: "text-amber-300", bio: "Architecte sonore d'une louange spontanée qui transforme l'atmosphère." },
-  { name: "Apotre Narcisse Majila", role: "Apotre", color: "text-rose-300", bio: "Théologien et auteur, il décrypte les mystères des temps modernes." },
-  { name: "Prophete Serge Habaquk", role: "Prophete", color: "text-pink-300", bio: "Mère spirituelle d'un mouvement de réveil panafricain." },
-  { name: "David Okit", role: "Artiste / MC", color: "text-violet-300", bio: "Pont entre culture urbaine et message d'espérance." },
-  { name: "Adoratrice Blessing peace", role: "Enseignante et adoratrice", color: "text-fuchsia-300", bio: "Spécialiste de la formation des leaders émergents." },
-  { name: "Adoratrice Deborah Mantshumba", role: "Leader de Louange", color: "text-indigo-300", bio: "Compositeur worship dont les chants traversent les continents." },
-  { name: "Adorateur Dany Kasongo", role: "Adorateur", color: "text-sky-300", bio: "Compositeur worship, sa voix porte une onction puissante." },
-  { name: "Adorateur Jules Bukasa", role: "Psalmiste", color: "text-cyan-300", bio: "Sa voix porte une onction de guérison et de délivrance." },
-  { name: "Docteur Archippe Fataki", role: "Docteur", color: "text-cyan-300", bio: "Sa voix porte une onction de guérison et de délivrance." },
-  { name: "Minister Abbey Ojumo", role: "Adoratrice", color: "text-teal-300", bio: "Bâtisseur d'une génération sans compromis, pleine de feu." },
+  {
+    name: "Pst. Jonathan Matunga",
+    role: "Pasteur Principal",
+    image: "/jona.jpeg",
+    bio: "Voix de reveil pour une generation qui veut marcher avec conviction.",
+  },
+  {
+    name: "Pst. Elior Tay",
+    role: "Pasteur",
+    image: "/Elior tay.jpeg",
+    bio: "Un message clair, pastoral et centre sur la transformation des vies.",
+  },
+  {
+    name: "Apotre Narcisse Majila",
+    role: "Apotre",
+    image: "/narcisse majila.jpeg",
+    bio: "Une parole profonde pour batir, orienter et equiper l'Eglise.",
+  },
+  {
+    name: "Prophete Serge Habakuk",
+    role: "Prophete",
+    image: "/serge habakuk.jpeg",
+    bio: "Une voix prophetique portee vers la restauration et l'impact.",
+  },
+  {
+    name: "Adorateur Dany Kasongo",
+    role: "Adorateur",
+    image: "/danny kasongo.jpeg",
+    bio: "Une atmosphere de louange sensible, intense et rassembleuse.",
+  },
+  {
+    name: "Docteur Archippe Fataki",
+    role: "Docteur",
+    image: "/archippe fataki.jpeg",
+    bio: "Un enseignement solide pour nourrir la foi et l'intelligence spirituelle.",
+  },
+  {
+    name: "Minister Abbey Ojomu",
+    role: "Adoratrice",
+    image: "/Abbey ojomu.jpeg",
+    bio: "Une conduite de louange tournee vers la presence et la consecration.",
+  },
 ];
 
-interface Props { progress: number }
+interface Props {
+  progress: number;
+}
+
+function SpeakerIcon({ role }: { role: string }) {
+  if (role.includes("Ador")) return <Music className="h-3 w-3" />;
+  if (role.includes("Docteur")) return <BookOpen className="h-3 w-3" />;
+  return <Mic className="h-3 w-3" />;
+}
 
 export function Speakers({ progress }: Props) {
+  const isMobile = useIsMobile();
   const total = SPEAKERS.length;
   const translateX = Math.max(0, Math.min(1, progress)) * (total - 1) * 22;
 
   return (
-    <section className="fixed inset-0 flex flex-col justify-center overflow-hidden pointer-events-none">
-      <div className="px-8 mb-8">
-        <p className="text-[10px] uppercase tracking-display text-primary/90">02 — La Scène</p>
-        <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-display text-white">Dix voix. Une vision.</h2>
+    <section
+      id="speakers"
+      className="relative z-10 overflow-hidden px-5 py-20 md:fixed md:inset-0 md:flex md:flex-col md:justify-center md:px-0 md:py-0 md:pointer-events-none"
+    >
+      <div className="mb-7 md:px-8">
+        <p className="text-[10px] uppercase tracking-display text-primary/90">02 - La Scene</p>
+        <h2 className="mt-2 text-3xl font-bold uppercase tracking-display text-white md:text-5xl">
+          Les intervenants
+        </h2>
       </div>
-      <div className="flex gap-6 will-change-transform" style={{ transform: `translateX(calc(20vw - ${translateX}vw))`, transition: "transform 0.15s linear" }}>
-        {SPEAKERS.map((s, i) => (
-          <article key={i} className="glass-strong rounded-3xl shrink-0 w-[22vw] min-w-[280px] aspect-[3/4] p-5 flex flex-col justify-end pointer-events-auto relative overflow-hidden">
-            <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white/5 via-transparent to-primary/20" />
-            <div className="absolute top-5 right-5 h-20 w-20 rounded-full bg-gradient-to-br from-primary/40 to-rose-500/30 blur-2xl" />
-            <div className="flex items-center justify-center flex-1">
-              <div className="h-32 w-32 rounded-full bg-gradient-to-br from-white/20 to-white/5 border border-white/20 flex items-center justify-center text-3xl font-bold text-white/90">
-                {s.name.split(" ").map(n => n[0]).slice(0, 2).join("")}
-              </div>
+      <div
+        className="grid gap-4 sm:grid-cols-2 md:flex md:gap-6 md:will-change-transform"
+        style={
+          isMobile
+            ? undefined
+            : {
+                transform: `translateX(calc(20vw - ${translateX}vw))`,
+                transition: "transform 0.12s linear",
+              }
+        }
+      >
+        {SPEAKERS.map((speaker, index) => (
+          <article
+            key={speaker.name}
+            className="glass-strong relative flex min-h-[340px] overflow-hidden rounded-2xl p-5 md:aspect-[3/4] md:w-[22vw] md:min-w-[280px] md:shrink-0 md:pointer-events-auto"
+          >
+            <img
+              src={speaker.image}
+              alt={speaker.name}
+              loading={index < 2 ? "eager" : "lazy"}
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0.35)_45%,rgba(0,0,0,0.92)_100%)]" />
+            <div className="relative mt-auto">
+              <p className="flex items-center gap-1 text-[10px] uppercase tracking-display text-amber-300">
+                <SpeakerIcon role={speaker.role} />
+                {speaker.role}
+              </p>
+              <h3 className="mt-1 text-xl font-bold leading-tight text-white">{speaker.name}</h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/70">{speaker.bio}</p>
             </div>
-            <p className={`text-[10px] uppercase tracking-display ${s.color} flex items-center gap-1`}>
-              {s.role.includes("Louange") || s.role.includes("Psalmiste") || s.role.includes("Artiste") ? <Music className="h-3 w-3" /> : s.role.includes("Enseignante") ? <BookOpen className="h-3 w-3" /> : <Mic className="h-3 w-3" />}
-              {s.role}
-            </p>
-            <h3 className="text-xl font-bold text-white mt-1 leading-tight">{s.name}</h3>
-            <p className="text-xs text-white/60 mt-2 line-clamp-3">{s.bio}</p>
-            <button className="mt-3 self-start text-white/60 hover:text-white">
-              <Instagram className="h-4 w-4" />
-            </button>
           </article>
         ))}
       </div>

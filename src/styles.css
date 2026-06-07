@@ -171,6 +171,23 @@
     text-shadow: 0 0 80px rgba(212, 160, 23, 0.45);
   }
   .tracking-display {
-    letter-spacing: 0.18em;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .glass,
+  .glass-strong {
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.42);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 36px rgba(212, 160, 23, 0.35);
+  }
+
+  * {
+    scroll-behavior: auto;
   }
 }

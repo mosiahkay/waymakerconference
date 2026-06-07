@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { BadgeModal } from "./BadgeModal";
 
 const CONTACT_EMAIL = "jonathanmatngoy@gmail.com";
+const CONTACT_PHONE = "+243 857135972";
 
 const TIERS = [
   { name: "Bronze", price: "500 $", perks: ["Logo sur écran", "Mention scène"] },
@@ -72,15 +73,15 @@ export function Finale({ progress }: Props) {
   }
 
   return (
-    <section className="fixed inset-0 overflow-y-auto pointer-events-none flex items-center justify-center px-6 py-24" style={{ opacity }}>
-      <div className="grid md:grid-cols-2 gap-6 max-w-6xl w-full pointer-events-auto">
+    <section className="relative z-10 flex items-center justify-center px-5 py-16 md:fixed md:inset-0 md:overflow-y-auto md:px-6 md:py-24 md:pointer-events-none" style={{ opacity }}>
+      <div id="volunteers" className="grid md:grid-cols-2 gap-6 max-w-6xl w-full pointer-events-auto">
         <div className="glass-strong rounded-3xl p-8">
           <p className="text-[10px] uppercase tracking-display text-primary">04 — Dream Team</p>
           <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-display text-white mt-1">Devenir bénévole</h3>
-          <p className="text-white/70 text-sm mt-2">Mets tes talents au service de la vision.</p>
+          <p className="text-white/70 text-sm mt-2">Mets tes talents au service de la vision. Contact : {CONTACT_PHONE}</p>
           <form onSubmit={submitVolunteer} className="space-y-3 mt-5">
             <Input required placeholder="Nom complet" value={vol.full_name} onChange={e => setVol({ ...vol, full_name: e.target.value })} className="bg-white/5 border-white/15" />
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid gap-3 md:grid-cols-2">
               <Input required type="email" placeholder="Email" value={vol.email} onChange={e => setVol({ ...vol, email: e.target.value })} className="bg-white/5 border-white/15" />
               <Input placeholder="Téléphone" value={vol.phone} onChange={e => setVol({ ...vol, phone: e.target.value })} className="bg-white/5 border-white/15" />
             </div>
@@ -117,7 +118,7 @@ export function Finale({ progress }: Props) {
             <li>— <span className="text-white">Impact spirituel :</span> un appel prophétique vers une génération entière.</li>
             <li>— <span className="text-white">Empreinte durable :</span> contenus, formations et envois post-conférence.</li>
           </ul>
-          <div className="grid grid-cols-2 gap-3 mt-5">
+          <div className="grid gap-3 mt-5 sm:grid-cols-2">
             {TIERS.map(t => (
               <div key={t.name} className="glass rounded-2xl p-4">
                 <div className="flex items-baseline justify-between">
@@ -131,11 +132,11 @@ export function Finale({ progress }: Props) {
             ))}
           </div>
           <form onSubmit={submitSponsor} className="space-y-3 mt-5">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid gap-3 md:grid-cols-2">
               <Input required placeholder="Organisation / Ministère" value={sponsor.organization} onChange={e => setSponsor({ ...sponsor, organization: e.target.value })} className="bg-white/5 border-white/15" />
               <Input required placeholder="Nom du contact" value={sponsor.contact_name} onChange={e => setSponsor({ ...sponsor, contact_name: e.target.value })} className="bg-white/5 border-white/15" />
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid gap-3 md:grid-cols-2">
               <Input required type="email" placeholder="Email" value={sponsor.email} onChange={e => setSponsor({ ...sponsor, email: e.target.value })} className="bg-white/5 border-white/15" />
               <Input placeholder="Montant envisagé ($)" value={sponsor.amount} onChange={e => setSponsor({ ...sponsor, amount: e.target.value })} className="bg-white/5 border-white/15" />
             </div>
