@@ -7,8 +7,8 @@ import { Input } from "@/components/ui/input";
 export const Route = createFileRoute("/programme")({
   head: () => ({
     meta: [
-      { title: "Programme · Waymaker Conference EDEN 2025" },
-      { name: "description", content: "Trois jours, trois soirées à ciel ouvert. Découvrez le programme complet de la Waymaker Conference EDEN 2025." },
+      { title: "Programme · Waymaker Conference Edition 2026" },
+      { name: "description", content: "Quatres jours, quatres soirées à ciel ouvert. Découvrez le programme complet de la Waymaker Conference EDEN 2025." },
     ],
   }),
   component: ProgrammePage,
@@ -37,45 +37,59 @@ interface Day {
 const DAYS: Day[] = [
   {
     id: "j1",
-    label: "Vendredi",
-    date: "12 décembre 2025",
+    label: "Jeudi",
+    date: "6 Aout 2026",
     theme: "Ouverture — L'appel d'EDEN",
     icon: Sun,
     sessions: [
-      { time: "16:00", title: "Accueil & Village des stands", location: "Esplanade", kind: "experience", description: "Ouverture des portes, accueil café, découverte du village partenaires et des espaces d'art." },
-      { time: "18:00", title: "Pré-louange acoustique", speaker: "Collectif Waymaker", location: "Scène Jardin", kind: "worship", description: "Set acoustique au coucher du soleil pour entrer dans l'atmosphère." },
-      { time: "19:30", title: "Cérémonie d'ouverture", speaker: "Pasteur Yvan Castanou", location: "Scène Principale", kind: "talk", description: "Déclaration prophétique d'ouverture, vision EDEN et accueil officiel." },
-      { time: "21:00", title: "Nuit de louange — EDEN", speaker: "Hillsong United · Dena Mwana", location: "Scène Principale", kind: "worship", description: "Première nuit immersive. Visuels cinématiques, chœur de 200 voix." },
-      { time: "23:30", title: "Prière de minuit", location: "Tente Sanctuaire", kind: "prayer", description: "Veillée intercession ouverte jusqu'à 2h du matin." },
+      { time: "09:00", title: "Accueil & Village des stands", location: "Esplanade", kind: "experience", description: "Ouverture des portes, accueil café, découverte du village partenaires et des espaces d'art." },
+      { time: "11:00", title: "Pré-louange acoustique", speaker: "Collectif Waymaker", location: "Scène Jardin", kind: "worship", description: "Set acoustique au coucher du soleil pour entrer dans l'atmosphère." },
+      { time: "15:30", title: "Cérémonie d'ouverture", speaker: "Pasteur Yvan Castanou", location: "Scène Principale", kind: "talk", description: "Déclaration prophétique d'ouverture, vision EDEN et accueil officiel." },
+      { time: "", title: "Nuit de louange ", speaker: "Hillsong United · Dena Mwana", location: "Scène Principale", kind: "worship", description: "Première nuit immersive. Visuels cinématiques, chœur de 200 voix." },
+      { time: "", title: "Prière de minuit", location: "Tente Sanctuaire", kind: "prayer", description: "Veillée intercession ouverte jusqu'à 2h du matin." },
     ],
   },
   {
     id: "j2",
-    label: "Samedi",
-    date: "13 décembre 2025",
+    label: "Vendredi",
+    date: "07 Aout 2026",
     theme: "Vision — Bâtir le chemin",
     icon: Flame,
     sessions: [
       { time: "09:00", title: "Petit-déjeuner leaders", location: "Salon Olivier", kind: "experience", description: "Rencontre réservée aux pasteurs et responsables ministères inscrits." },
       { time: "10:30", title: "Masterclass — Leadership prophétique", speaker: "Dr. Mensa Otabil", location: "Salle Cèdre", kind: "talk", description: "Atelier 90 min. Inscription sur place, places limitées." },
-      { time: "14:00", title: "Panel — Culture & Foi en Afrique", speaker: "5 voix panafricaines", location: "Scène Forum", kind: "talk", description: "Conversation modérée sur l'impact culturel du Réveil." },
-      { time: "16:30", title: "Atelier artistes & créatifs", speaker: "Collectif Maison", location: "Studio Art", kind: "experience", description: "Création collaborative — peinture live, design, mode." },
-      { time: "19:00", title: "Session principale — Soir 2", speaker: "Bishop T.D. Jakes", location: "Scène Principale", kind: "talk", description: "Message phare de la conférence." },
-      { time: "21:00", title: "Nuit de gloire", speaker: "Maverick City · Athoms Mbuma", location: "Scène Principale", kind: "worship", description: "Louange continue, déclarations prophétiques, baptêmes du Saint-Esprit." },
+      { time: "15:30", title: "Panel — Culture & Foi en Afrique", speaker: "5 voix panafricaines", location: "Scène Forum", kind: "talk", description: "Conversation modérée sur l'impact culturel du Réveil." },
+      { time: "", title: "Atelier artistes & créatifs", speaker: "Collectif Maison", location: "Studio Art", kind: "experience", description: "Création collaborative — peinture live, design, mode." },
+      { time: "", title: "Session principale — Soir 2", speaker: "Bishop T.D. Jakes", location: "Scène Principale", kind: "talk", description: "Message phare de la conférence." },
+      { time: "", title: "Nuit de gloire", speaker: "Maverick City · Athoms Mbuma", location: "Scène Principale", kind: "worship", description: "Louange continue, déclarations prophétiques, baptêmes du Saint-Esprit." },
     ],
   },
   {
     id: "j3",
-    label: "Dimanche",
-    date: "14 décembre 2025",
+    label: "Samedi",
+    date: "08 Aout 2026",
     theme: "Envoi — Rendez-vous prophétique",
     icon: Moon,
     sessions: [
-      { time: "10:00", title: "Culte d'envoi", speaker: "Pasteur Mohammed Sanogo", location: "Scène Principale", kind: "worship", description: "Adoration et message d'envoi pour les 15 000 participants." },
+      { time: "09:00", title: "Culte d'envoi", speaker: "Pasteur Mohammed Sanogo", location: "Scène Principale", kind: "worship", description: "Adoration et message d'envoi pour les 15 000 participants." },
       { time: "12:30", title: "Agape & rencontres", location: "Village EDEN", kind: "experience", description: "Repas partagé, food trucks, rencontres entre ministères." },
-      { time: "15:00", title: "Conférence — Bâtisseurs de demain", speaker: "Pasteur Marcello Tunasi", location: "Scène Principale", kind: "talk", description: "Session dédiée à la nouvelle génération de leaders." },
-      { time: "17:30", title: "Prière prophétique d'envoi", location: "Tente Sanctuaire", kind: "prayer", description: "Imposition des mains, prophéties personnelles, envoi missionnaire." },
-      { time: "19:00", title: "Finale — Rendez-vous", speaker: "Tous les artistes", location: "Scène Principale", kind: "worship", description: "Clôture officielle. Hymne d'EDEN. Feux d'artifice." },
+      { time: "15:30", title: "Conférence — Bâtisseurs de demain", speaker: "Pasteur Marcello Tunasi", location: "Scène Principale", kind: "talk", description: "Session dédiée à la nouvelle génération de leaders." },
+      { time: "", title: "Prière prophétique d'envoi", location: "Tente Sanctuaire", kind: "prayer", description: "Imposition des mains, prophéties personnelles, envoi missionnaire." },
+      { time: "", title: "Finale — Rendez-vous", speaker: "Tous les artistes", location: "Scène Principale", kind: "worship", description: "Clôture officielle. Hymne d'EDEN. Feux d'artifice." },
+    ],
+  },
+  {
+    id: "j4",
+    label: "Dimanche",
+    date: "09 Aout 2026",
+    theme: "Envoi — Rendez-vous prophétique",
+    icon: Moon,
+    sessions: [
+      { time: "09:00", title: "Culte d'envoi", speaker: "Pasteur Mohammed Sanogo", location: "Scène Principale", kind: "worship", description: "Adoration et message d'envoi pour les 15 000 participants." },
+      { time: "12:30", title: "Agape & rencontres", location: "Village EDEN", kind: "experience", description: "Repas partagé, food trucks, rencontres entre ministères." },
+      { time: "15:30", title: "Conférence — Bâtisseurs de demain", speaker: "Pasteur Marcello Tunasi", location: "Scène Principale", kind: "talk", description: "Session dédiée à la nouvelle génération de leaders." },
+      { time: "", title: "Prière prophétique d'envoi", location: "Tente Sanctuaire", kind: "prayer", description: "Imposition des mains, prophéties personnelles, envoi missionnaire." },
+      { time: "", title: "Finale — Rendez-vous", speaker: "Tous les artistes", location: "Scène Principale", kind: "worship", description: "Clôture officielle. Hymne d'EDEN. Feux d'artifice." },
     ],
   },
 ];
@@ -124,7 +138,7 @@ function ProgrammePage() {
           <div className="text-[10px] uppercase tracking-[0.35em] text-amber-300/80 mb-3">Waymaker Conference · EDEN 2025</div>
           <h1 className="font-display text-5xl md:text-7xl leading-[0.95] text-glow mb-4">Le Programme</h1>
           <p className="text-white/70 max-w-2xl text-base md:text-lg">
-            Trois jours pour bâtir, recevoir et renvoyer. Une chorégraphie de louange, de parole et de rencontres — pensée comme un seul mouvement prophétique.
+            Quatres jours pour bâtir, recevoir et renvoyer. Une chorégraphie de louange, de parole et de rencontres — pensée comme un seul mouvement prophétique.
           </p>
         </div>
 
